@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    table {
+      margin-top: 30px;
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    a {
+      cursor: pointer;
+    }
+
+    span {
+      font-size: x-large;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+  <span style="text-decoration: underline;">Rooms</span>&nbsp&nbsp&nbsp
+  <a href="http://ec2-13-209-18-10.ap-northeast-2.compute.amazonaws.com:8080/user"><span>Users</span></a>&nbsp&nbsp&nbsp
+  <a href="http://ec2-13-209-18-10.ap-northeast-2.compute.amazonaws.com:8080/friend"><span>Friends</span></a>&nbsp&nbsp&nbsp
+  <a href="http://ec2-13-209-18-10.ap-northeast-2.compute.amazonaws.com:8080/signin"><span>Logout</span></a>
+
+  <table>
+    <tr>
+      <th>방 번호</th>
+      <th>참여인원 수</th>
+      <th>참가하기</th>
+    </tr>
+    <tr>
+      <td id="first_room_id"></td>
+      <td id="first_room_user_cnt"></td>
+      <td><button class="first_room_btn">입장</button></td>
+    </tr>
+    <tr>
+      <td id="second_room_id"></td>
+      <td id="second_room_user_cnt"></td>
+      <td><button class="second_room_btn">입장</button></td>
+    </tr>
+  </table>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="checkAuth.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>

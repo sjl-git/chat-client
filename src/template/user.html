@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    table {
+      margin-top: 30px;
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    a {
+      cursor: pointer;
+    }
+
+    span {
+      font-size: x-large;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="http://ec2-13-209-18-10.ap-northeast-2.compute.amazonaws.com:8080/room"><span>Rooms</span></a>&nbsp&nbsp&nbsp
+  <span style="text-decoration: underline;">Users</span>&nbsp&nbsp&nbsp
+  <a href="http://ec2-13-209-18-10.ap-northeast-2.compute.amazonaws.com:8080/friend"><span>Friends</span></a>&nbsp&nbsp&nbsp
+  <a href="http://ec2-13-209-18-10.ap-northeast-2.compute.amazonaws.com:8080/signin"><span>Logout</span></a>
+
+  <table id="user">
+    <tr>
+      <th>ID</th>
+      <th>가입 날짜</th>
+      <th>친구 수</th>
+      <th>친구 요청</th>
+    </tr>
+    <tr v-for="user in users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.created_at }}</td>
+      <td>{{ user.friendCount }}</td>
+      <td><button v-if="!user.isFriend" v-bind:id="user.id + '__sendReq'" v-on:click="sendFriend">친구 요청</button></td>
+    </tr>
+  </table>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="checkAuth.js"></script>
+  <script src="user.js"></script>
+</body>
+
+</html>

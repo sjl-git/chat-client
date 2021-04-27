@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+  .main {
+    width: 25%;
+  }
+
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -75%);
+  }
+
+  input[type=text],
+  input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+</style>
+
+<body class="main centered">
+  <form id="login_form">
+    <div>
+      <label for="id"><b>Id</b></label>
+      <input type="text" placeholder="Enter Id" name="id" id="login_id_input" required>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="login_pwd_input" required>
+      <button type="submit">Login</button>
+    </div>
+  </form>
+  <a href="/signup">
+    <button>Sign Up</button>
+  </a>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="signin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    table {
+      margin-top: 30px;
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    a {
+      cursor: pointer;
+    }
+
+    span {
+      font-size: x-large;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="http://ec2-13-209-18-10.ap-northeast-2.compute.amazonaws.com:8080/room"><span>Rooms</span></a>&nbsp&nbsp&nbsp
+  <a href="http://ec2-13-209-18-10.ap-northeast-2.compute.amazonaws.com:8080/user"><span>Users</span></a>&nbsp&nbsp&nbsp
+  <span style="text-decoration: underline;">Friends</span>&nbsp&nbsp&nbsp
+  <a href="http://ec2-13-209-18-10.ap-northeast-2.compute.amazonaws.com:8080/signin"><span>Logout</span></a>
+
+  <div style="margin:30px;">
+    <span style="text-decoration: underline;">수신함</span>&nbsp&nbsp&nbsp
+    <a href="http://ec2-13-209-18-10.ap-northeast-2.compute.amazonaws.com:8080/friend/list"><span>목록</span></a>
+  </div>
+
+  <table id="user">
+    <tr>
+      <th>ID</th>
+      <th>가입 날짜</th>
+      <th>수락</th>
+      <th>거절</th>
+    </tr>
+    <tr v-for="friend in friends">
+      <td>{{ friend.from }}</td>
+      <td>{{ friend.createdAt }}</td>
+      <td><button v-bind:id="friend.id + '__acceptBtn'" v-on:click="accept">수락</button></td>
+      <td><button v-bind:id="friend.id + '__rejectBtn'" v-on:click="reject">거절</button></td>
+    </tr>
+  </table>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="checkAuth.js"></script>
+  <script src="friend.js"></script>
+</body>
+
+</html>
